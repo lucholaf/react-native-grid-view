@@ -1,0 +1,28 @@
+{
+  "name": "react-native-grid-view",
+  "version": "0.1.0",
+  "description": "React Native Grid/Collection View component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucholaf/react-native-grid-view.git"
+  },
+  "keywords": [
+    "collection",
+    "grid",
+    "react-native",
+    "ios"
+  ],
+  "author": "Luis Floreani <lucholaf@gmail.com> (https://github.com/lucholaf)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucholaf/react-native-grid-view/issues"
+  },
+  "homepage": "https://github.com/lucholaf/react-native-grid-view",
+  "dependencies": {
+    "react-native": "^0.3.4"
+  }
+}
