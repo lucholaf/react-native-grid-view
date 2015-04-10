@@ -1,0 +1,12 @@
+{
+  "name": "AwesomeGridProject",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start"
+  },
+  "dependencies": {
+    "react-native": "^0.1.0",
+    "react-native-grid-view": "^0.1.0"
+  }
+}
