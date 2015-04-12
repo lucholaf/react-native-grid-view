@@ -1,6 +1,6 @@
 {
   "name": "react-native-grid-view",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "React Native Grid/Collection View component",
   "main": "index.js",
   "scripts": {
