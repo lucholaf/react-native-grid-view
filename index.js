@@ -5,6 +5,7 @@ var React = require('react-native');
 var {
   AppRegistry,
   View,
+  StyleSheet,
   ListView,
 } = React;
 
@@ -28,17 +29,37 @@ var CollectionView = React.createClass({
         return itemsGroups;
     },
     getInitialState: function() {
-        return {items: [], renderRow: null, style: undefined, itemsPerRow: 1};
+        return {items: [], renderItem: null, style: undefined, itemsPerRow: 1};
+    },
+    renderGroup: function(group) {
+      var that = this;
+      var movies = group.map(function(movie) {
+        return that.props.renderItem(movie);
+      });
+      return (
+        <View style={styles.group}>
+          {movies}
+        </View>
+      );
     },
     render: function() {
         var groups = this.groupItems(this.props.items, this.props.itemsPerRow);
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         return (<ListView
-            dataSource={ds.cloneWithRows(groups)}
-            renderRow={this.props.renderRow}
-            style={this.props.style}
+          dataSource={ds.cloneWithRows(groups)}
+          renderRow={this.renderGroup}
+          style={this.props.style}
         />);
     },
+});
+
+
+var styles = StyleSheet.create({
+  group: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });
 
 module.exports = CollectionView;
