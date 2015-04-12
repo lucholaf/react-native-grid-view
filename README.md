@@ -10,8 +10,8 @@ This component allows to display a grid/collection of items with more than one i
 
 ## Example
 
-All you need is to `require` the `react-native-markdown` module and then use the
-`<Markdown/>` tag.
+All you need is to `require` the `react-native-grid-view` module and then use the
+`<GridView/>` tag.
 
 ```javascript
 var React = require('react-native');
