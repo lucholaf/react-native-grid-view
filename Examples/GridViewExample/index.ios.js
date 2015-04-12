@@ -14,7 +14,7 @@ var {
   View,
 } = React;
 
-var CollectionView = require('react-native-grid-view');
+var GridView = require('react-native-grid-view');
 
 var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
 var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
@@ -70,7 +70,7 @@ var AwesomeProject = React.createClass({
     }
 
     return (
-      <CollectionView
+      <GridView
         items={this.state.dataSource}
         itemsPerRow={MOVIES_PER_ROW}
         renderRow={this.renderMoviesGroup}
@@ -133,4 +133,4 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
+AppRegistry.registerComponent('GridViewExample', () => AwesomeProject);
