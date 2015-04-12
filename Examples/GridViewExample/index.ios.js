@@ -25,7 +25,7 @@ var MOVIES_PER_ROW = 3;
 
 var Movie = React.createClass({
   render: function() {
-      return <View style={styles.element}>
+      return <View style={styles.movie} >
         <Image
           source={{uri: this.props.movie.posters.thumbnail}}
           style={styles.thumbnail}
@@ -73,7 +73,7 @@ var AwesomeProject = React.createClass({
       <GridView
         items={this.state.dataSource}
         itemsPerRow={MOVIES_PER_ROW}
-        renderRow={this.renderMoviesGroup}
+        renderItem={this.renderItem}
         style={styles.listView}
       />
     );
@@ -81,7 +81,7 @@ var AwesomeProject = React.createClass({
 
   renderLoadingView: function() {
     return (
-      <View style={styles.group}>
+      <View>
         <Text>
           Loading movies...
         </Text>
@@ -89,27 +89,14 @@ var AwesomeProject = React.createClass({
     );
   },
 
-  renderMoviesGroup: function(group) {
-    var movies = group.map(function(movie) {
-      return <Movie movie={movie}/>
-    });
-    return (
-      <View style={styles.group}>
-        {movies}
-      </View>
-    );
+  renderItem: function(item) {
+      return <Movie movie={item} />
   },
 });
 
 var styles = StyleSheet.create({
-  group: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
-    height: 170,
-  },
-  element: {
+  movie: {
+    height: 150,
     flex: 1,
     alignItems: 'center',
     flexDirection: 'column',
