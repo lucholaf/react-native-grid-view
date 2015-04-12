@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "react-native": "^0.3.4",
-    "react-native-grid-view": "^0.1.0"
+    "react-native-grid-view": "^0.3.0"
   }
 }
