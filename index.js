@@ -29,7 +29,7 @@ var CollectionView = React.createClass({
         return itemsGroups;
     },
     getInitialState: function() {
-        return {items: [], renderItem: null, style: undefined, itemsPerRow: 1};
+        return {items: [], renderItem: null, style: undefined, itemsPerRow: 1, onEndReached: undefined};
     },
     renderGroup: function(group) {
       var that = this;
@@ -49,6 +49,7 @@ var CollectionView = React.createClass({
           dataSource={ds.cloneWithRows(groups)}
           renderRow={this.renderGroup}
           style={this.props.style}
+          onEndReached={this.props.onEndReached}
         />);
     },
 });
