@@ -14,9 +14,9 @@ var CollectionView = React.createClass({
         var itemsGroups = [];
         var group = [];
         items.forEach(function(item) {
-          if (group.length == itemsPerRow) {
+          if (group.length === itemsPerRow) {
             itemsGroups.push(group);
-            group = [];
+            group = [item];
           } else {
             group.push(item);
           }
