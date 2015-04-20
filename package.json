@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/lucholaf/react-native-grid-view",
   "dependencies": {
-    "react-native": "^0.3.4"
+    "react-native": "^0.4.0"
   }
 }
