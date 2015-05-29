@@ -50,6 +50,7 @@ var CollectionView = React.createClass({
           renderRow={this.renderGroup}
           style={this.props.style}
           onEndReached={this.props.onEndReached}
+          scrollEnabled={this.props.scrollEnabled}
         />);
     },
 });
