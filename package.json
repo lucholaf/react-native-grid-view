@@ -21,7 +21,7 @@
     "url": "https://github.com/lucholaf/react-native-grid-view/issues"
   },
   "homepage": "https://github.com/lucholaf/react-native-grid-view",
-  "dependencies": {
+  "peerDependencies": {
     "react-native": ">=0.4.0"
   }
 }
