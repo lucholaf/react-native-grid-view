@@ -33,8 +33,8 @@ var CollectionView = React.createClass({
     },
     renderGroup: function(group) {
       var that = this;
-      var items = group.map(function(item) {
-        return that.props.renderItem(item);
+      var items = group.map(function(item, index) {
+        return that.props.renderItem(item, index);
       });
       return (
         <View style={styles.group}>
