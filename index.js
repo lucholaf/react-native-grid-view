@@ -46,12 +46,9 @@ var CollectionView = React.createClass({
         var groups = this.groupItems(this.props.items, this.props.itemsPerRow);
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         return (<ListView
-          dataSource={ds.cloneWithRows(groups)}
+          {...this.props}
           renderRow={this.renderGroup}
-          style={this.props.style}
-          onEndReached={this.props.onEndReached}
-          scrollEnabled={this.props.scrollEnabled}
-          pageSize={this.props.pageSize | 1}
+          dataSource={ds.cloneWithRows(groups)}
         />);
     },
 });
