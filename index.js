@@ -28,9 +28,6 @@ var CollectionView = React.createClass({
 
         return itemsGroups;
     },
-    getInitialState: function() {
-        return {items: [], renderItem: null, style: undefined, itemsPerRow: 1, onEndReached: undefined};
-    },
     renderGroup: function(group) {
       var that = this;
       var items = group.map(function(item, index) {
