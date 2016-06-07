@@ -1,6 +1,6 @@
 {
   "name": "react-native-grid-view",
-  "version": "0.3.7",
+  "version": "0.4.0",
   "description": "React Native Grid/Collection View component",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/lucholaf/react-native-grid-view",
   "peerDependencies": {
-    "react-native": ">=0.4.0"
+    "react-native": ">=0.25.1"
   }
 }
