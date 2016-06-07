@@ -1,3 +1,7 @@
+# OSX
+#
+.DS_Store
+
 # Xcode
 #
 build/
@@ -16,6 +20,21 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-*.DS_Store
+project.xcworkspace
 
-node_modules
+# Android/IJ
+#
+.idea
+.gradle
+local.properties
+
+# node.js
+#
+node_modules/
+npm-debug.log
+
+# BUCK
+buck-out/
+\.buckd/
+android/app/libs
+android/keystores/debug.keystore

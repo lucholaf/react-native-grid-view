@@ -4,17 +4,17 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
+import React, { Component } from 'react';
+import {
   AppRegistry,
   Image,
   ListView,
   StyleSheet,
   Text,
   View,
-} = React;
+} from 'react-native';
 
-var GridView = require('react-native-grid-view');
+import GridView from 'react-native-grid-view'
 
 var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
 var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
@@ -23,36 +23,39 @@ var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
 var REQUEST_URL = API_URL + PARAMS;
 var MOVIES_PER_ROW = 3;
 
-var Movie = React.createClass({
-  render: function() {
-      return <View style={styles.movie} >
-        <Image
-          source={{uri: this.props.movie.posters.thumbnail}}
-          style={styles.thumbnail}
-        />
-        <View >
-          <Text 
-          style={styles.title}
-          numberOfLines={3}>{this.props.movie.title}</Text>
-          <Text style={styles.year}>{this.props.movie.year}</Text>
+class Movie extends Component {
+  render() {
+      return (
+        <View style={styles.movie} >
+          <Image
+            source={{uri: this.props.movie.posters.thumbnail}}
+            style={styles.thumbnail}
+          />
+          <View >
+            <Text 
+            style={styles.title}
+            numberOfLines={3}>{this.props.movie.title}</Text>
+            <Text style={styles.year}>{this.props.movie.year}</Text>
+          </View>
         </View>
-      </View>
-  },
-});
+      );
+  }
+}
 
-var AwesomeProject = React.createClass({
-  getInitialState: function() {
-    return {
+class AwesomeProject extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       dataSource: null,
       loaded: false,
-    };
-  },
+    }
+  }
 
-  componentDidMount: function() {
+  componentDidMount() {
     this.fetchData();
-  },
+  }
 
-  fetchData: function() {
+  fetchData() {
     fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
@@ -62,9 +65,9 @@ var AwesomeProject = React.createClass({
         });
       })
       .done();
-  },
+  }
 
-  render: function() {
+  render() {
     if (!this.state.loaded) {
       return this.renderLoadingView();
     }
@@ -77,9 +80,9 @@ var AwesomeProject = React.createClass({
         style={styles.listView}
       />
     );
-  },
+  }
 
-  renderLoadingView: function() {
+  renderLoadingView() {
     return (
       <View>
         <Text>
@@ -87,12 +90,12 @@ var AwesomeProject = React.createClass({
         </Text>
       </View>
     );
-  },
+  }
 
-  renderItem: function(item) {
+  renderItem(item) {
       return <Movie movie={item} />
-  },
-});
+  }
+}
 
 var styles = StyleSheet.create({
   movie: {
