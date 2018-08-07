@@ -1,62 +1,63 @@
 'use strict';
 
-import React from 'react';
+import React, {Component} from 'react';
 
 import {
   AppRegistry,
-  View,
+  FlatList,
   StyleSheet,
-  ListView,
+  View,
 } from 'react-native';
 
-var CollectionView = React.createClass({
-    groupItems: function(items, itemsPerRow) {
-        var itemsGroups = [];
-        var group = [];
-        items.forEach(function(item) {
-          if (group.length === itemsPerRow) {
-            itemsGroups.push(group);
-            group = [item];
-          } else {
-            group.push(item);
-          }
-        });
+class CollectionView extends Component {
+  groupItems = (items, itemsPerRow) => {
+    let itemsGroups = [];
+    let group = [];
+    items.forEach(function (item) {
+      if (group.length === itemsPerRow) {
+        itemsGroups.push(group);
+        group = [item];
+      } else {
+        group.push(item);
+      }
+    });
 
-        if (group.length > 0) {
-          itemsGroups.push(group);
-        }
+    if (group.length > 0) {
+      itemsGroups.push(group);
+    }
 
-        return itemsGroups;
-    },
-    renderGroup: function(group) {
-      var that = this;
-      var items = group.map(function(item, index) {
-        return that.props.renderItem(item, index);
-      });
-      return (
-        <View style={styles.group}>
-          {items}
-        </View>
-      );
-    },
-    render: function() {
-        var groups = this.groupItems(this.props.items, this.props.itemsPerRow);
-        var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        return (<ListView
-          {...this.props}
-          renderRow={this.renderGroup}
-          dataSource={ds.cloneWithRows(groups)}
-        />);
-    },
-});
+    return itemsGroups;
+  };
 
+  renderGroup = ({item}) => {
+    const items = item.map((item, index) => {
+      return this.props.renderItem(item, index);
+    });
+    return (
+      <View style={styles.group}>
+        {items}
+      </View>
+    );
+  };
+
+  render = () => {
+    const groups = this.groupItems(this.props.items, this.props.itemsPerRow);
+    return (
+      <FlatList
+        {...this.props}
+        renderItem={this.renderGroup}
+        data={groups}
+      />
+    );
+  };
+}
 
 var styles = StyleSheet.create({
   group: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection : 'row',
+    alignItems    : 'center',
     justifyContent: 'center',
-    overflow: 'hidden'
+    overflow      : 'hidden'
   }
 });
 
